@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body{
+    margin: 0px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.Header-main{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Header-logo{
+    width: 200px;
+}
+.Home{
+    background-color: beige;
+    justify-items: center;
+}
+.Home-card{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 5px 5px 5px grey;
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "fecha price"
+        "fecha availability";
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+    background-color: white;
+}
+.Home-title{
+    grid-area: title;
+    text-align: center;
+    font-size: 20px;
+    margin: 0px;
+}
+.Home-fecha{
+    grid-area: fecha;
+    font-size: 16px;
+    align-self: flex-end;
+}
+.Home-price{
+    grid-area: price;
+    font-size: 18px;
+    font-weight: bold;
+    color:darkgreen;
+    text-align: right;
+}
+.Home-availability{
+    grid-area: availability;
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+}

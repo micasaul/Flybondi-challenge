@@ -20,10 +20,10 @@ const Home = async () => {
 
                     return `
                         <article class="Home-card">
-                            <h3>${fecha}</h3>
-                            <h2>${vuelo.origin} ➡ ${vuelo.destination}</h2>
-                            <h3>Price: $${vuelo.price}</h3>
-                            <h4>Seats Available: ${vuelo.availability}</h4>
+                            <h2 class="Home-title">${vuelo.origin} ➡ ${vuelo.destination}</h2>
+                            <span class="Home-fecha">${fecha}</span> 
+                            <span class="Home-price">$${vuelo.price}</span>
+                            <span class="Home-availability">Quedan ${vuelo.availability} asientos disponibles.</span>
                         </article>    
                     `;
                 }).join('')
