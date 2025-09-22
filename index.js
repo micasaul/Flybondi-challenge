@@ -10,16 +10,20 @@ const App = async () => {
     header.innerHTML = await Header();
     
     const hash = location.pathname.toLowerCase() || '/';
-
-    let render;
     if (hash === '/') {
-        render = Home;
+        const home = await Home();
+        content.innerHTML = home.view;
+
+        const filtros = document.querySelector(".Filtros");
+        filtros.addEventListener("input", home.render);
+        filtros.addEventListener("change", home.render);
+
+        home.render();
     } else {
-        render = Error404;
+        content.innerHTML = await Error404();
     }
 
-    content.innerHTML = await render();
-}
+};
 
 window.addEventListener('load', App);
 window.addEventListener('hashchange', App);
