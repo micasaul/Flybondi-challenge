@@ -8,21 +8,24 @@ const App = async () => {
     const content = document.getElementById('content');
 
     header.innerHTML = await Header();
-    
+
     const hash = location.pathname.toLowerCase() || '/';
     if (hash === '/') {
         const home = await Home();
         content.innerHTML = home.view;
 
-        const filtros = document.querySelector(".Filtros");
-        filtros.addEventListener("input", home.render);
-        filtros.addEventListener("change", home.render);
+        document.querySelectorAll("input[name='tipo-viaje']")
+        .forEach(r => r.addEventListener("change", () => {
+            home.actualizarPreciosPorTipo();
+            home.render(true); 
+        }));
 
-        home.render();
+        document.getElementById("buscar").addEventListener("click", () => home.render(true));
+
+        home.render(true);
     } else {
         content.innerHTML = await Error404();
     }
-
 };
 
 window.addEventListener('load', App);
